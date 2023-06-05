@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import {AuthContext} from "../Context/auth.context"
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,10 @@ const Signup = () => {
     email: '',
     password: '',
   });
+
+  const {user, authenticateUser} = useContext(AuthContext)
+
+const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,8 +24,9 @@ const Signup = () => {
 
     try {
       // Send signup data to the backend API
-      const response = await axios.post('/api/signup', formData);
+      const response = await axios.post(`${import.meta.env.VITE_APP_SERVER_URL}/api/signup`, formData);
       console.log(response.data); // Handle success response from the server
+   navigate("/login")
     } catch (error) {
       console.error('Error signing up:', error.response.data); // Handle error response from the server
     }

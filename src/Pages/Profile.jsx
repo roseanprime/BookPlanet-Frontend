@@ -1,68 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../Context/auth.context";
 
 const Profile = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    bio: '',
-  });
+  const { authenticateUser, user } = useContext(AuthContext);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform profile update logic here, e.g., send data to server
-    console.log(formData);
-  };
+  useEffect(() => {
+    authenticateUser();
+    console.log(user);
+  }, []);
 
   return (
     <div>
-      <h1>Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Bio:
-          <textarea
-            name="bio"
-            value={formData.bio}
-            onChange={handleInputChange}
-          ></textarea>
-        </label>
-        <br />
-        <button type="submit">Save</button>
-      </form>
+      <h1>Hello,  {user.firstName} </h1>
+      <p>You have 2 books on your wishlist!</p>
     </div>
   );
 };

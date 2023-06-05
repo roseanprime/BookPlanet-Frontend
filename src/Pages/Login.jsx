@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../Context/auth.context";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
+
+  const { authenticateUser, storeToken } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,10 +21,16 @@ const Login = () => {
 
     try {
       // Send login data to the backend API
-      const response = await axios.post('/api/login', formData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/login`,
+        formData
+      );
       console.log(response.data); // Handle success response from the server
+      storeToken(response.data.authToken);
+      authenticateUser();
+      navigate("/books");
     } catch (error) {
-      console.error('Error logging in:', error.response.data); // Handle error response from the server
+      console.error("Error logging in:", error.response.data); // Handle error response from the server
     }
   };
 

@@ -20,7 +20,7 @@ function AuthProviderWrapper(props) {
 
       if (storedToken) {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/verify`,
+          `${import.meta.env.VITE_APP_SERVER_URL}/api/verify`,
           {
             headers: { Authorization: `Bearer ${storedToken}` },
           }
@@ -80,8 +80,7 @@ function AuthProviderWrapper(props) {
         authenticateUser,
         logout,
         tokenUpdate,
-      }}
-    >
+      }}>
       {props.children}
     </AuthContext.Provider>
   );

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';   
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 //demo
 const Books = () => {
@@ -11,7 +10,10 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('/api/books');
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_SERVER_URL}/api/list`
+        );
+        console.log(response);
         setBooks(response.data);
       } catch (error) {
         setError(error.message);
@@ -38,7 +40,12 @@ const Books = () => {
         <div>No books available.</div>
       ) : (
         books.map((book) => (
-          <div key={book.id}>
+          <div key={book._id}>
+            <img
+              src={book.image}
+              alt={`${book.title} image`}
+              style={{ width: 200 }}
+            />
             <h2>{book.title}</h2>
             <p>{book.author}</p>
           </div>
