@@ -9,7 +9,7 @@ const Login = () => {
     password: "",
   });
 
-  const { authenticateUser, storeToken } = useContext(AuthContext);
+  const { user, authenticateUser, storeToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -37,29 +37,33 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
+      {user ? (
+        <p>You are already logged in.</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <button type="submit">Login</button>
+        </form>
+      )}
     </div>
   );
 };

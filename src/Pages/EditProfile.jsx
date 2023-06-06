@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function EditProfile() {
+const EditProfile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [bio, setBio] = useState('');
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_APP_SERVER_URL}/api/user/profile`);
+        const { name, email, bio } = response.data;
+        setName(name);
+        setEmail(email);
+        setBio(bio);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+        // Handle the error appropriately
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -17,15 +35,19 @@ function EditProfile() {
     setBio(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Perform the logic to update the profile
-    // e.g., make an API call to save the updated profile data
-
-    // Reset the form fields
-    setName('');
-    setEmail('');
-    setBio('');
+    try {
+      await axios.put(`${import.meta.env.VITE_APP_SERVER_URL}/api/user/profile`, {
+        name,
+        email,
+        bio,
+      });
+      console.log('Profile updated successfully');
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      // Handle the error appropriately
+    }
   };
 
   return (
@@ -51,6 +73,6 @@ function EditProfile() {
       </form>
     </div>
   );
-}
+};
 
 export default EditProfile;

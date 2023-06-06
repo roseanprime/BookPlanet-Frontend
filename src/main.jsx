@@ -8,10 +8,10 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <AuthProviderWrapper>
+    <AuthProviderWrapper>
+      <Router>
         <App />
-      </AuthProviderWrapper>
-    </Router>
+      </Router>
+    </AuthProviderWrapper>
   </React.StrictMode>
 );

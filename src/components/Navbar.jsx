@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const { logout } = useContext(AuthContext);
+  const { logout, loggedIn } = useContext(AuthContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -14,7 +14,6 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/books">Books</Link>
 
       <div className={`dropdown ${isOpen ? "open" : ""}`}>
         <button className="dropbtn" onClick={toggleMenu}>
@@ -22,26 +21,39 @@ const NavBar = () => {
         </button>
         {isOpen && (
           <div className="dropdown-content">
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/search">Search for a book</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
+            {!loggedIn && (
+              <>
+                <li>
+                  <Link to="/signup">Signup</Link>
+                </li>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
+            {loggedIn && (
+              <>
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/" onClick={() => logout()}>
+                    Logout
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/addbooks">AddBooks</Link>
+                </li>
+                <Link to="/books">Books</Link>
+              </>
+            )}
             <li>
               <Link to="/about-us">About Us</Link>
             </li>
             <li>
-              <Link to="/" onClick={() => logout()}>
-                Logout
-              </Link>
+              <Link to="/search">Search for a book</Link>
             </li>
+
           </div>
         )}
       </div>

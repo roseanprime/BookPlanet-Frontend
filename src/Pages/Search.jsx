@@ -25,7 +25,7 @@ function Search() {
       <h1>Search for a book!</h1>
       <form onSubmit={handleSearch}>
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
-      </form>
+      </form>👀
 
       {result &&
         result.map((book) => (
