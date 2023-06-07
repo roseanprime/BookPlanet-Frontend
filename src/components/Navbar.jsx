@@ -13,7 +13,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <Link to="/">Home</Link>
+      <Link to="/">🏠</Link>
 
       <div className={`dropdown ${isOpen ? "open" : ""}`}>
         <button className="dropbtn" onClick={toggleMenu}>

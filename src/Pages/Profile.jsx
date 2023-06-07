@@ -38,25 +38,13 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {user && (
         <>
           <h1>Hello, {user.firstName} {user.lastName}</h1>
           <p>You have 2 books on your wishlist!</p>
         </>
       )}
-      <input
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleInputChange}
-      />
-      <input
-        type="text"
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleInputChange}
-      />
       <button onClick={handleReturnClick} className="btn">Return</button>
     </div>
   );

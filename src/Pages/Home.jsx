@@ -1,13 +1,11 @@
-import React from 'react';
+import {useState, useeffect } from 'react';
 
 const Home = () => {
   return (
   
     <div>
       <h1>Welcome</h1>
-      <h1>Recent Searched Books</h1>
-
-      
+      <h1>Most Searched Books on Google 2022</h1>
     </div>
   );
 };

@@ -67,15 +67,15 @@ const Books = () => {
     }
   };
 
-  const handleDeleteBook = async (bookId) => {
+  const handleAddToFavorites = async (bookId) => {
     try {
-      const response = await axios.delete(
-        `${import.meta.env.VITE_APP_SERVER_URL}/api/books/${bookId}`
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/favorites/${bookId}`
       );
-      console.log("Book deleted successfully");
-      // Perform any additional actions after deleting the book
+      console.log("Book added to favorites successfully");
+      // Perform any additional actions after adding the book to favorites
     } catch (error) {
-      console.error("Error deleting book:", error);
+      console.error("Error adding book to favorites:", error);
       // Handle the error appropriately
     }
   };
@@ -125,9 +125,8 @@ const Books = () => {
                     <Link to={`/bookdetails/${book._id}`}>View Details</Link>
                   </div>
                   <button onClick={() => handleEditBook(book)}>Edit</button>
-                  <button onClick={() => handleDeleteBook(book._id)}>
-                    Delete
-                  </button>
+                  <button onClick={() => handleAddToFavorites(book._id)}>
+                    Add to Favorites</button>
                 </div>
               )}
             </div>

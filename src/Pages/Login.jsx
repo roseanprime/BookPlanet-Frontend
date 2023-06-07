@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Login</h1>
       {user ? (
         <p>You are already logged in.</p>
