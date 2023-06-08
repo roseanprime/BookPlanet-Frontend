@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const Books = () => {
   const [books, setBooks] = useState([]);
@@ -13,20 +14,20 @@ const Books = () => {
     description: "",
   });
 
-  const fetchBooks = async () => {
-    try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_APP_SERVER_URL}/api/list`
-      );
-      setBooks(response.data);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_APP_SERVER_URL}/api/list`
+        );
+        setBooks(response.data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchBooks();
   }, []);
 
@@ -67,16 +68,14 @@ const Books = () => {
     }
   };
 
-  const handleAddToFavorites = async (bookId) => {
+  const handleDelete = async (bookId) => {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_APP_SERVER_URL}/api/favorites/${bookId}`
+      await axios.delete(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/${bookId}`
       );
-      console.log("Book added to favorites successfully");
-      // Perform any additional actions after adding the book to favorites
+      setBooks(books.filter((book) => book._id !== bookId));
     } catch (error) {
-      console.error("Error adding book to favorites:", error);
-      // Handle the error appropriately
+      setError(error.message);
     }
   };
 
@@ -90,45 +89,62 @@ const Books = () => {
 
   return (
     <div>
-      <h1>Books</h1>
+      <h1 className="display-4 mb-4">Books</h1>
       {books.length === 0 ? (
         <div>No books available.</div>
       ) : (
-        <div>
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {books.map((book) => (
-            <div key={book._id}>
-              <img
-                src={book.image}
-                alt={`${book.title} image`}
-                style={{ width: 200 }}
-              />
-              {editBookId === book._id ? (
-                <div>
-                  <input
-                    type="text"
-                    name="title"
-                    value={editFormData.title}
-                    onChange={handleEditFormChange}
+            <div key={book._id} className="col mb-4">
+             title={book.title}
+                <div className="card h-100">
+                  <img
+                    src={book.image}
+                    alt={`${book.title} image`}
+                    className="card-img-top"
+                    style={{ height: "200px", objectFit: "cover" }}
                   />
-     
-                  <textarea
-                    name="description"
-                    value={editFormData.description}
-                    onChange={handleEditFormChange}></textarea>
-                  <button onClick={handleUpdateBook}>Save</button>
-                </div>
-              ) : (
-                <div>
-                  <h2>{book.title}</h2>
-                  <p>{book.author}</p>
-                  <div>
-                    <Link to={`/bookdetails/${book._id}`}>View Details</Link>
+                  <div className="card-body d-flex flex-column">
+                    {editBookId === book._id ? (
+                      <div>
+                        <input
+                          type="text"
+                          name="title"
+                          value={editFormData.title}
+                          onChange={handleEditFormChange}
+                        />
+                        <input
+                          type="text"
+                          name="author"
+                          value={editFormData.author}
+                          onChange={handleEditFormChange}
+                        />
+                        <textarea
+                          name="description"
+                          value={editFormData.description}
+                          onChange={handleEditFormChange}
+                        ></textarea>
+                        <button onClick={handleUpdateBook}>Save</button>
+                      </div>
+                    ) : (
+                      <div>
+                        <h5 className="card-title">{book.title}</h5>
+                        <p className="card-text">{book.author}</p>
+                        <div className="mt-auto">
+                          <Link to={`/bookdetails/${book._id}`}>
+                            View Details
+                          </Link>
+                        </div>
+                        <button onClick={() => handleDelete(book._id)}>
+                          Delete
+                        </button>
+                        <button onClick={() => handleEditBook(book)}>
+                          Edit
+                        </button>
+                      </div>
+                    )}
                   </div>
-                  <button onClick={() => handleEditBook(book)}>Edit</button>
-                  <button onClick={() => handleAddToFavorites(book._id)}>
-                    Add to Favorites</button>
                 </div>
-              )}
             </div>
           ))}
         </div>
