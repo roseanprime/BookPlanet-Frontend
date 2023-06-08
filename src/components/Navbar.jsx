@@ -49,15 +49,21 @@ const NavBar = () => {
       </div>
       <div className="navbar-links">
         <Link to="/books">Books</Link>
+        <Link to="/about-us">About Us</Link>
+        {!loggedIn && (<> 
         <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/login">Login</Link></>)}
+
+        { loggedIn && (<>
         <Link to="/search">Search for a book</Link>
         <Link to="/profile">Profile</Link>
-        <Link to="/about-us">About Us</Link>
         <Link to="/AddBooks">AddBook</Link>
         <Link to="/" onClick={() => logout()}>
           Logout
-        </Link>
+        </Link></>)}
+
+        
+
       </div>
     </nav>
   );

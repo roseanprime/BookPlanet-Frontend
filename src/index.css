@@ -13,6 +13,10 @@
   
 }
 
+.App {
+min-height: 100vh;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,6 +29,8 @@ a:hover {
 
 body {
  background-image:url(https://t3.ftcdn.net/jpg/02/34/38/12/360_F_234381253_GT7XkYO7qsfGGINHVDDDBl1uOEVCi7zo.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
 }
 
 /* Navigation Bar */

@@ -12,7 +12,6 @@ import BookDetails from "./Pages/BookDetails";
 import AboutUs from "./Pages/AboutUs";
 import Search from "./Pages/Search";
 import Bootstrap from "./Pages/bootstrap.jsx"; // Import the Bootstrap component
-import BookDetails from "./Pages/BookDetails";
 import Recommendation from "./Pages/Recommendation";
 import AddBook from "./Pages/AddBooks";
 
