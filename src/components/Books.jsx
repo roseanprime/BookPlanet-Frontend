@@ -15,19 +15,21 @@ const Books = () => {
     description: "",
   });
 
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/list`
+      );
+      setBooks(response.data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_APP_SERVER_URL}/api/list`
-        );
-        setBooks(response.data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+ 
 
     fetchBooks();
   }, []);

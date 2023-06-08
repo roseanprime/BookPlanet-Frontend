@@ -57,7 +57,7 @@ const NavBar = () => {
         { loggedIn && (<>
         <Link to="/search">Search for a book</Link>
         <Link to="/profile">Profile</Link>
-        <Link to="/AddBooks">AddBook</Link>
+
         <Link to="/" onClick={() => logout()}>
           Logout
         </Link></>)}
