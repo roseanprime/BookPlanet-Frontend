@@ -12,16 +12,19 @@ const AddBook = () => {
 
   const handleFormChange = (event) => {
     if (event.target.name === "imageUrl") {
+      // Handle image URL separately
       setFormData({
         ...formData,
         imageUrl: event.target.value,
       });
     } else if (event.target.name === "imageFile") {
+      // Handle image file separately
       setFormData({
         ...formData,
         imageFile: event.target.files[0],
       });
     } else {
+      // Handle other form fields
       setFormData({
         ...formData,
         [event.target.name]: event.target.value,
@@ -39,12 +42,22 @@ const AddBook = () => {
       formDataWithImage.append("description", formData.description);
 
       if (formData.imageUrl) {
+        // If image URL is provided, append it to the form data
         formDataWithImage.append("imageUrl", formData.imageUrl);
       } else if (formData.imageFile) {
+        // If image file is uploaded, append it to the form data
         formDataWithImage.append("imageFile", formData.imageFile);
       }
 
-      const response = await axios.post("/api/books/create", formDataWithImage);
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/create`,
+        formDataWithImage,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log("Book added successfully");
       // Perform any additional actions after adding the book
       window.location.href = "/books"; // Redirect to the books list page

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/auth.context";
 
 const NavBar = () => {
-  const { logout } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const { logout, loggedIn } = useContext(AuthContext);
 
   const gradientColors = ["blue", "red", "green", "pink"]; // Define an array of colors for the gradient
 

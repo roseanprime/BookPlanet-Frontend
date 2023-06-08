@@ -10,7 +10,7 @@ const Login = () => {
     password: '',
   });
 
-  const { authenticateUser, storeToken } = useContext(AuthContext);
+  const { user, authenticateUser, storeToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {

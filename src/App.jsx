@@ -12,6 +12,10 @@ import BookDetails from "./Pages/BookDetails";
 import AboutUs from "./Pages/AboutUs";
 import Search from "./Pages/Search";
 import Bootstrap from "./Pages/bootstrap.jsx"; // Import the Bootstrap component
+import BookDetails from "./Pages/BookDetails";
+import Recommendation from "./Pages/Recommendation";
+import AddBook from "./Pages/AddBooks";
+
 
 function App() {
   return (
@@ -24,11 +28,14 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/:id/edit" element={<EditProfile />} />
+        <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/books" element={<Books />} />
         <Route path="/bookdetails/:id" element={<BookDetails />}/>
         <Route path="/search" element={<Search />} />
+        <Route path="/bookdetails/:id" element={<BookDetails />} />
+        <Route path="/recommendation" element={<Recommendation />} />
+        <Route path="/addbooks" element={<AddBook />} />
       </Routes>
     </div>
   );

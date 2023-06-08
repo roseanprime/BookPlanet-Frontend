@@ -1,14 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Context/auth.context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 const ProfilePage = () => {
   const { authenticateUser, user } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const [profilePhoto, setProfilePhoto] = useState(""); // Profile photo state
-  const [name, setName] = useState(""); // Name state
-  const [bio, setBio] = useState(""); // Bio state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+  });
 
   const handleProfilePhotoChange = (event) => {
     // Handle profile photo change
@@ -48,7 +49,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login"); // Redirect to the login page if user data is not available
+      navigate('/login'); // Redirect to the login page if user data is not available
     }
   }, [user, navigate]);
 
@@ -57,11 +58,11 @@ const ProfilePage = () => {
   }
 
   const handleReturnClick = () => {
-    navigate("/books");
+    navigate('/books');
   };
 
   return (
-    <div>
+    <div className="container">
       {user && (
         <>
           <h1>Hello, {user.firstName} {user.lastName}</h1>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AuthCard from "../Pages/AuthCard";
 
+
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -131,7 +132,7 @@ const Books = () => {
                         <h5 className="card-title">{book.title}</h5>
                         <p className="card-text">{book.author}</p>
                         <div className="mt-auto">
-                          <Link to={`../Pages/BookDetails/${book._id}`}>
+                          <Link to={`/bookdetails/${book._id}`}>
                             View Details
                           </Link>
                         </div>

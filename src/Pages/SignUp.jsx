@@ -24,7 +24,10 @@ const Signup = () => {
 
     try {
       // Send signup data to the backend API
-      const response = await axios.post(`${import.meta.env.VITE_APP_SERVER_URL}/api/signup`, formData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_APP_SERVER_URL}/api/signup`,
+        formData
+      );
       console.log(response.data); // Handle success response from the server
       navigate('/login');
     } catch (error) {
