@@ -19,7 +19,7 @@ import AddBook from "./Pages/AddBooks";
 function App() {
   return (
     <div className="App">
-      <Bootstrap /> {/* Render the Bootstrap component */}
+      <Bootstrap /> {/* Render the Bootstrap  */}
       <NavBar />
 
       <Routes>

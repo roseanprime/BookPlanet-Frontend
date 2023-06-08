@@ -4,10 +4,44 @@ import { Link } from 'react-router-dom';
 const AboutUs = () => {
   return (
     <div className="container pt-5 mt-4 text-center">
-      <h1 className="mb-2">About Us</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis id diam condimentum finibus. Integer suscipit efficitur sem, a lacinia tortor placerat ac. Suspendisse faucibus, mauris id scelerisque tincidunt, justo est consequat risus, in iaculis velit est nec elit. Fusce aliquet facilisis erat, vitae fringilla lacus rutrum et. Ut in aliquam mauris, nec tempor ligula. Suspendisse in magna mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas rutrum diam id suscipit lacinia. Ut ullamcorper pellentesque nunc vitae sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec rutrum ullamcorper facilisis. Vivamus dapibus euismod ipsum, eu ultrices tellus suscipit in. Donec rhoncus feugiat lorem in scelerisque. Ut faucibus sapien in urna rutrum congue. Fusce ac orci sit amet nulla aliquam volutpat ut vitae metus.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget turpis id diam condimentum finibus. Integer suscipit efficitur sem, a lacinia tortor placerat ac. Suspendisse faucibus, mauris id scelerisque tincidunt, justo est consequat risus, in iaculis velit est nec elit. Fusce aliquet facilisis erat, vitae fringilla lacus rutrum et. Ut in aliquam mauris, nec tempor ligula. Suspendisse in magna mauris. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas rutrum diam id suscipit lacinia. Ut ullamcorper pellentesque nunc vitae sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec rutrum ullamcorper facilisis. Vivamus dapibus euismod ipsum, eu ultrices tellus suscipit in. Donec rhoncus feugiat lorem in scelerisque. Ut faucibus sapien in urna rutrum congue. Fusce ac orci sit amet nulla aliquam volutpat ut vitae metus.</p>
-      <Link to="/" className="btn btn-primary">Return</Link>
+      <h1 className="mb-2">Find Us on</h1>
+      
+      <div className="row">
+        <div className="col-md-6">
+          <div className="person">
+            <div className="person-info">
+              <h2>Roshan Pradhan</h2>
+              <div className="social-links">
+                <a href="https://www.linkedin.com/person1" target="_blank" rel="noopener noreferrer">
+                  <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" className="social-icon" style={{ width: '50px', height: '50px' }} />
+                </a>
+                <a href="https://github.com/roseanprime" target="_blank" rel="noopener noreferrer">
+                  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" className="social-icon" style={{ width: '40px', height: '40px' }} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="person">
+            <div className="person-info">
+              <h2>Niroj Gautam</h2>
+              <div className="social-links">
+                <a href="https://www.linkedin.com/in/roshan-pradhan-a99427176/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" className="social-icon" style={{ width: '50px', height: '50px' }} />
+                </a>
+                <a href="https://github.com/Niroj167" target="_blank" rel="noopener noreferrer">
+                  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" className="social-icon" style={{ width: '40px', height: '40px' }} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <div className="text-left mt-3" style={{ marginLeft: '10px', marginBottom: '20px' }}>
+        <Link to="/" className="btn btn-primary">Return</Link>
+      </div>
     </div>
   );
 }

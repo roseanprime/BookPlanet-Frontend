@@ -24,7 +24,7 @@ function Search() {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-lg-6">
-          <h1 className="text-center mb-4">Search for a book!</h1>
+          <h1 id="search">Search for a book!</h1>
           <form onSubmit={handleSearch}>
             <div className="input-group mb-3">
               <input
@@ -33,7 +33,7 @@ function Search() {
                 placeholder="Enter book title"
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <button className="btn btn-primary" type="submit">Search</button>
+              <button className="btn btn-primary" type="submit">🔍Search</button>
             </div>
           </form>
         </div>

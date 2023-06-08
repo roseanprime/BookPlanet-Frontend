@@ -45,13 +45,13 @@ const NavBar = () => {
       <style>{fadeInAnimation}</style>
       <style>{riverFlowAnimation}</style>
       <div className="navbar-brand">
-        <Link to="/">Home</Link>
+        <Link to="/">🏠</Link>
       </div>
       <div className="navbar-links">
         <Link to="/books">Books</Link>
         <Link to="/about-us">About Us</Link>
         {!loggedIn && (<> 
-        <Link to="/signup">Signup</Link>
+        <Link to="/signup">Register</Link>
         <Link to="/login">Login</Link></>)}
 
         { loggedIn && (<>
