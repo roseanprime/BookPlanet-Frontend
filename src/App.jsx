@@ -8,12 +8,15 @@ import SignupPage from "./Pages/SignUp";
 import LoginPage from "./Pages/Login";
 import Profile from "./Pages/Profile";
 import EditProfile from "./Pages/EditProfile";
+import BookDetails from "./Pages/BookDetails";
 import AboutUs from "./Pages/AboutUs";
 import Search from "./Pages/Search";
+import Bootstrap from "./Pages/bootstrap.jsx"; // Import the Bootstrap component
 
 function App() {
   return (
     <div className="App">
+      <Bootstrap /> {/* Render the Bootstrap component */}
       <NavBar />
 
       <Routes>
@@ -24,6 +27,7 @@ function App() {
         <Route path="/profile/:id/edit" element={<EditProfile />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/bookdetails/:id" element={<BookDetails />}/>
         <Route path="/search" element={<Search />} />
       </Routes>
     </div>
