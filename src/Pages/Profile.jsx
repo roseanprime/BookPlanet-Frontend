@@ -69,7 +69,7 @@ const ProfilePage = () => {
           <p>You have 2 books on your wishlist!</p>
           <h2>Profile Page</h2>
           <div className="profile-photo">
-            <img src={profilePhoto} alt="Profile" />
+           
             <input type="file" onChange={handleProfilePhotoChange} />
           </div>
           <form onSubmit={handleSubmit}>
