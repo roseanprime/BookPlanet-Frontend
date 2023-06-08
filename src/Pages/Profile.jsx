@@ -65,34 +65,11 @@ const ProfilePage = () => {
     <div className="container">
       {user && (
         <>
+<img src="https://img.freepik.com/free-icon/user_318-804790.jpg" style={{width: 200, paddingTop: 200}}/>
           <h1>Hello, {user.firstName} {user.lastName}</h1>
-          <p>You have 2 books on your wishlist!</p>
-          <h2>Profile Page</h2>
-          <div className="profile-photo">
-           
-            <input type="file" onChange={handleProfilePhotoChange} />
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={handleNameChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="bio">Bio:</label>
-              <textarea id="bio" value={bio} onChange={handleBioChange}></textarea>
-            </div>
-            <button type="submit">Save Changes</button>
-          </form>
-        </>
+          <p>You have created 2 books on your wishlist!</p>
+          </>
       )}
-      <button onClick={handleReturnClick} className="btn">
-        Return
-      </button>
     </div>
   );
 };
