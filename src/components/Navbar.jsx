@@ -45,7 +45,7 @@ const NavBar = () => {
       <style>{fadeInAnimation}</style>
       <style>{riverFlowAnimation}</style>
       <div className="navbar-brand">
-        <Link to="/">🏠</Link>
+        <Link to="/"> Home  🏠</Link>
       </div>
       <div className="navbar-links">
         <Link to="/books">Books</Link>

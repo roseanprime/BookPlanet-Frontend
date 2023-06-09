@@ -99,23 +99,101 @@ body {
 #search{
 margin: 100px
 }
+#search-container {
+  margin-top: 50px;
+}
+
+#search-form-row {
+  justify-content: center;
+}
+
+#search-form-col {
+  text-align: center;
+}
+
+#card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px; /* Adjust the maximum width as desired */
+  margin: 0 auto; /* Center the card horizontally */
+  margin-bottom: 2rem;
+}
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: contain;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #777;
+}
+
 .book-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+.book-list {
+  display: flex;
+  justify-content: center;
+}
+
 .book-item {
+  position: relative;
   width: 300px;
-  margin: 10px;
-  text-align: center;
+  margin: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s, filter 0.3s;
+  filter: brightness(100%);
 }
 
 .book-image {
-  height: 400px;
-  width: auto;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
+
+.book-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.book-item.hovered {
+  transform: scale(1.2);
+  filter: brightness(50%);
+}
+
+.book-item.hovered .book-info {
+  opacity: 1;
+}
+
+
 #book-description {
   color: #fff;
   font-size: 18px;

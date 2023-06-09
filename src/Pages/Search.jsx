@@ -44,14 +44,14 @@ function Search() {
       <div className="row">
         {result &&
           result.map((book) => (
-            <div key={book.id} className="col-lg-6 mb-4">
-              <div className="card shadow">
+            <div key={book.id} className="row justify-content-center mb-4">
+              <div id="card">
                 {book.volumeInfo.imageLinks && (
                   <img
                     src={book.volumeInfo.imageLinks.thumbnail}
                     alt={`${book.volumeInfo.title} image`}
                     className="card-img-top"
-                    style={{ height: "300px", objectFit: "cover" }}
+                    style={{ height: "300px", objectFit: "contain" }}
                   />
                 )}
                 <div className="card-body">

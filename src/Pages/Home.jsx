@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Home = () => {
   const books = [
@@ -38,18 +38,37 @@ const Home = () => {
       author: 'By: Tomás Navarro',
       image: 'https://m.media-amazon.com/images/I/51hYNivYGeL._AC_UF894,1000_QL80_.jpg',
     },
+  
+
   ];
 
+  const [hoveredBookId, setHoveredBookId] = useState(null);
+
+  const handleBookMouseEnter = (bookId) => {
+    setHoveredBookId(bookId);
+  };
+
+  const handleBookMouseLeave = () => {
+    setHoveredBookId(null);
+  };
+
   return (
-     <div className="container mt-5">
+    <div className="container mt-5">
       <h1>Presents you the</h1>
       <h1>Most Searched Books on Google 2022</h1>
       <div className="book-list">
         {books.map((book) => (
-          <div key={book.id} className="book-item">
+          <div
+            key={book.id}
+            className={`book-item ${book.id === hoveredBookId ? 'hovered' : ''}`}
+            onMouseEnter={() => handleBookMouseEnter(book.id)}
+            onMouseLeave={handleBookMouseLeave}
+          >
             <img src={book.image} alt={`${book.title} image`} className="book-image" />
-            <h2>{book.title}</h2>
-            <p>{book.author}</p>
+            <div className="book-info">
+              <h2>{book.title}</h2>
+              <p>{book.author}</p>
+            </div>
           </div>
         ))}
       </div>
