@@ -12,7 +12,7 @@ const AboutUs = () => {
             <div className="person-info">
               <h2>Roshan Pradhan</h2>
               <div className="social-links">
-                <a href="https://www.linkedin.com/person1" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/roshan-pradhan-a99427176/" target="_blank" rel="noopener noreferrer">
                   <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" className="social-icon" style={{ width: '50px', height: '50px' }} />
                 </a>
                 <a href="https://github.com/roseanprime" target="_blank" rel="noopener noreferrer">
@@ -24,10 +24,10 @@ const AboutUs = () => {
         </div>
         <div className="col-md-6">
           <div className="person">
-            <div className="person-info">
+            <div className="This is me Niroj graduating from Ironhack lisbon june 9 2O23">
               <h2>Niroj Gautam</h2>
               <div className="social-links">
-                <a href="https://www.linkedin.com/in/roshan-pradhan-a99427176/" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/niroj-gautam-845712197/" target="_blank" rel="noopener noreferrer">
                   <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" className="social-icon" style={{ width: '50px', height: '50px' }} />
                 </a>
                 <a href="https://github.com/Niroj167" target="_blank" rel="noopener noreferrer">
