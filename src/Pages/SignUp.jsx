@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/auth.context';
-import AuthCard from './AuthCard';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -36,56 +35,59 @@ const Signup = () => {
   };
 
   return (
-    <div className="container">
-      <AuthCard title="Signup">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">First Name:</label>
-            <input
-              type="text"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className="form-control"
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Last Name:</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleInputChange}
-              className="form-control"
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Email:</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className="form-control"
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password:</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              className="form-control"
-            />
-          </div>
-          <div className="d-flex justify-content-center">
-            <button type="submit" className="btn btn-primary">
-              Signup
-            </button>
-          </div>
-        </form>
-      </AuthCard>
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="card">
+        <div className="card-body">
+          <h1 className="card-title">Signup</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">First Name:</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Last Name:</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Email:</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                className="form-control"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <button type="submit" className="btn btn-primary">
+                Signup
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

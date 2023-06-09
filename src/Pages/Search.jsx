@@ -21,10 +21,10 @@ function Search() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: "50px" }}>
       <div className="row justify-content-center">
         <div className="col-lg-6">
-          <h1 id="search">Search for a book!</h1>
+          <h1 className="text-center mb-4">Search for a book!</h1>
           <form onSubmit={handleSearch}>
             <div className="input-group mb-3">
               <input
@@ -33,28 +33,35 @@ function Search() {
                 placeholder="Enter book title"
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <button className="btn btn-primary" type="submit">🔍Search</button>
+              <button className="btn btn-primary" type="submit">
+                Search
+              </button>
             </div>
           </form>
         </div>
       </div>
 
-      {result &&
-        result.map((book) => (
-          <div key={book.id} className="row justify-content-center mb-4">
-            <div className="col-lg-6">
-              {book.volumeInfo.imageLinks && (
-                <img
-                  src={book.volumeInfo.imageLinks.thumbnail}
-                  alt={`${book.volumeInfo.title} image`}
-                  className="img-fluid"
-                />
-              )}
-              <h2>{book.volumeInfo.title}</h2>
-              <p>{book.volumeInfo.authors}</p>
+      <div className="row">
+        {result &&
+          result.map((book) => (
+            <div key={book.id} className="col-lg-6 mb-4">
+              <div className="card shadow">
+                {book.volumeInfo.imageLinks && (
+                  <img
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                    alt={`${book.volumeInfo.title} image`}
+                    className="card-img-top"
+                    style={{ height: "300px", objectFit: "cover" }}
+                  />
+                )}
+                <div className="card-body">
+                  <h5 className="card-title">{book.volumeInfo.title}</h5>
+                  <p className="card-text">{book.volumeInfo.authors}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }

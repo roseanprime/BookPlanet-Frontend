@@ -92,7 +92,7 @@ const Books = () => {
 
   return (
     <div>
-      <h1 className="display-4 mb-4">Books</h1>
+       <h1 id="bookh1" style={{ marginTop: "20px" }}>Books</h1>
       {books.length === 0 ? (
         <div>No books available.</div>
       ) : (
@@ -105,7 +105,7 @@ const Books = () => {
                     src={book.image}
                     alt={`${book.title} image`}
                     className="card-img-top"
-                    style={{ height: "200px", objectFit: "cover" }}
+                    style={{ height: "200px", objectFit: "contain" }}
                   />
                   <div className="card-body d-flex flex-column">
                     {editBookId === book._id ? (

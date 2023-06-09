@@ -116,3 +116,122 @@ margin: 100px
   width: auto;
   object-fit: cover;
 }
+#book-description {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  padding: 15px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#book-description:hover {
+  background-color: #444;
+}
+
+#book-description::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00c3ff, #0084ff);
+  opacity: 0.5;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+#book-details {
+  margin-top: 50px;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#review-form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#review-form textarea {
+  width: 50%;
+  height: 100px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  resize: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#review-form input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#review-form button[type="submit"] {
+  background-color: #fbbc05;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#review-form button[type="submit"]:hover {
+  background-color: #ff9900;
+}
+
+.book-review {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.book-review p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.book-review button {
+  background-color: #fbbc05;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.book-review button:hover {
+  background-color: #ff9900;
+}
+.delete-button {
+  background-color:#fbbc05;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.delete-button:hover {
+  background-color: black;
+}

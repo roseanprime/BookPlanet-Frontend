@@ -79,36 +79,40 @@ const BookDetails = () => {
   return (
     <div>
       {book && (
-        <div>
+        <div id="book-details">
           <h1>Book Details</h1>
-          <h3>Title: {book.title}</h3>
-          <p>Author: {book.author}</p>
-          <p>Description: {book.description}</p>
-          <p>Publisher: {book.publisher}</p>
+          <h2>Title: {book.title}</h2>
+          <h3>Author: {book.author}</h3>
+          <h4 id="book-description">Description: {book.description}</h4>
+          <h5>Published By: {book.publisher}</h5>
         </div>
       )}
       <hr />
       {/* Review Form */}
-      <form onSubmit={handleSubmitReview}>
-        <label htmlFor="review">Add a Review:</label>
-        <textarea
-          id="review"
-          value={review}
-          onChange={handleReviewChange}
-          required></textarea>
-        <input
-          type="number"
-          value={rating}
-          min={1}
-          max={5}
-          onChange={(e) => setRating(e.target.value)}
-        />
-        <button type="submit">Submit Review</button>
-      </form>
+      <form id="review-form" onSubmit={handleSubmitReview}>
+  <label htmlFor="review">Add a Review:</label>
+  <textarea
+    id="review"
+    value={review}
+    onChange={handleReviewChange}
+    required
+  ></textarea>
+  <input
+    type="number"
+    value={rating}
+    min={1}
+    max={5}
+    onChange={(e) => setRating(e.target.value)}
+  />
+  <button type="submit">Submit Review</button>
+</form>
+
+
       <hr />
       {/* Display existing reviews */}
       {book &&
         book.review.map((review) => (
+          <div key={review._id}>
           <>
             <p>
               By {review.author.firstName} {review.author.lastName}:
@@ -116,12 +120,13 @@ const BookDetails = () => {
             <p>{review.content}</p>
             <p>Rating: {review.rating}</p>
             {review.author._id === user._id && (
-              <button onClick={() => handleReviewDelete(review._id)}>
+              <button onClick={() => handleReviewDelete(review._id)} id="delete-button">
                 Delete Review
               </button>
             )}
             <hr />
           </>
+          </div>
         ))}
     </div>
   );
